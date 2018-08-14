@@ -36,10 +36,23 @@ public class HelloAppEngine extends HttpServlet {
       throws IOException {
     Properties properties = System.getProperties();
 
+    spin();
+
     response.setContentType("text/plain");
     response.getWriter().println("Hello App Engine - Standard using "
             + SystemProperty.version.get() + " Java "
             + properties.get("java.specification.version"));
+    response.getWriter().println("GAE_PROFILER_MODE=" + System.getenv("GAE_PROFILER_MODE"));
+  }
+
+  private static void spin() {
+    // Spin for 5 seconds.
+    long stopMillis = System.currentTimeMillis() + 5000;
+    while (System.currentTimeMillis() < stopMillis) {
+      for (int i = 0; i < (1 << 20); i++) {
+        // Just spin.
+      }
+    }
   }
 
   public static String getInfo() {
