@@ -49,7 +49,7 @@ public class HelloAppEngine extends HttpServlet {
     // Spin for 5 seconds.
     long stopMillis = System.currentTimeMillis() + 5000;
     while (System.currentTimeMillis() < stopMillis) {
-      for (int i = 0; i < (1 << 20); i++) {
+      for (int i = 0; i < (1 << 16); i++) {
         // Just spin.
       }
     }
