@@ -42,7 +42,12 @@ public class JvmProfiler extends HttpServlet {
       if (started) {
         throw new IllegalStateException("CPU profiling is already in use");
       }
-      long tag = startProfilingId0(1 /* PROCESS_CPU */, 100 /* 1/sec */, seconds /* sec */, false);
+      long tag = startProfilingId0(
+          1, // PROCESS_CPU
+          100, // times / sec / core
+          seconds, // duration, seconds
+          true // VM detail
+      );
       started = true;
       return tag;
     }
