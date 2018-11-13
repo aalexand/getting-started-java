@@ -21,7 +21,11 @@
   </system-properties>
   <runtime>java8</runtime>
   <threadsafe>true</threadsafe>
-  <url-stream-handler>urlfetch</url-stream-handler>
+  <instance-class>B1</instance-class>
+  <basic-scaling>
+    <max-instances>16</max-instances>
+    <idle-timeout>10m</idle-timeout>
+  </basic-scaling>
   <env-variables>
     <env-var name="GAE_PROFILER_MODE" value="cpu,heap" />
   </env-variables>

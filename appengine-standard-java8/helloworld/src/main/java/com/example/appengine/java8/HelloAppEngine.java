@@ -21,7 +21,8 @@ import com.google.appengine.api.utils.SystemProperty;
 
 import java.io.IOException;
 import java.util.Properties;
-
+import java.io.FileOutputStream;
+import java.util.Random;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +37,11 @@ public class HelloAppEngine extends HttpServlet {
       throws IOException {
     Properties properties = System.getProperties();
 
-    spin();
+    try (FileOutputStream fos = new FileOutputStream("/tmp/kernel-time-burner.out")) {
+      byte[] b = new byte[65536];
+      new Random().nextBytes(b);
+      fos.write(b);
+    }
 
     response.setContentType("text/plain");
     response.getWriter().println("Hello App Engine - Standard using "
