@@ -1,5 +1,5 @@
 // Copyright 2018 Google Inc. All Rights Reserved.
-package com.google.monitoring.runtime.cpu;
+package com.google.monitoring.runtime.cpu;  // Must be in this package for JNI bindings to match.
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
